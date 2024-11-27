@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: be-root
+  name: be-root
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: be-root
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: be-root
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/devops/be-root
+        name: be-root
+        securityContext:
+          runAsUser: 1000680000
+          runAsGroup: 1000680000

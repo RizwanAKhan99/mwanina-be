@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: be-root
+  namespace: devops
+spec:
+  host: mwanina-be-devops.apps.stgocp.mwanitest.local
+  to:
+    kind: Service
+    name: be-root
+    weight: 100
+  port:
+    targetPort: 5174
+  tls:
+    termination: edge
+  wildcardPolicy: None
